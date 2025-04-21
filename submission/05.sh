@@ -36,5 +36,5 @@ PUBKEY_HASH=$(echo -n "$public_key" | xxd -r -p | openssl dgst -sha256 -binary |
 # Format: <push><blockheight> OP_CSV OP_DROP OP_DUP OP_HASH160 <push><pubkeyhash> OP_EQUALVERIFY OP_CHECKSIG
 SCRIPT_HEX="${BLOCKS_PUSH}${BLOCKS_LE_HEX}${OP_CHECKSEQUENCEVERIFY}${OP_DROP}${OP_DUP}${OP_HASH160}${PUBKEY_HASH_PUSH}${PUBKEY_HASH}${OP_EQUALVERIFY}${OP_CHECKSIG}"
 
-echo "$SCRIPT_HEX
+echo "$SCRIPT_HEX"
 Footer
