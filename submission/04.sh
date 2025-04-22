@@ -1,7 +1,7 @@
 # Create a CLTV script with a timestamp of 1495584032 and public key below:
 # publicKey=02e3af28965693b9ce1228f9d468149b831d6a0540b25e8a9900f71372c11fb277
 
-publicKe="02e3af28965693b9ce1228f9d468149b831d6a0540b25e8a9900f71372c11fb277"
+publicKey="02e3af28965693b9ce1228f9d468149b831d6a0540b25e8a9900f71372c11fb277"
 
 timestamp=1495584032
 
@@ -21,7 +21,7 @@ HEX_FIRST_CHAR=$(echo $TIMESTAMP_HEX | cut -c1)
 [[ 0x$HEX_FIRST_CHAR -gt 0x7 ]] && TIMESTAMP_HEX="00"$TIMESTAMP_HEX
 
 
-TIMESTAMP_LE_HEX=$(echo $TIMESTAMP_HEX | grep -o .. | tac | tr -d '\n'
+TIMESTAMP_LE_HEX=$(echo $TIMESTAMP_HEX | grep -o .. | tac | tr -d '\n')
 
 
 TIMESTAMP_BYTES=$(echo -n "$TIMESTAMP_LE_HEX" | wc -c | awk '{print $1/2}')
