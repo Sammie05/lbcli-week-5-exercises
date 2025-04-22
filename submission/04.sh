@@ -28,7 +28,7 @@ TIMESTAMP_BYTES=$(echo -n "$TIMESTAMP_LE_HEX" | wc -c | awk '{print $1/2}')
 TsIMESTAMP_PUSH=$(printf "%02x" $TIMESTAMP_BYTES)
 
 
-PUBKEY_HASH=$(echo -n "$public_key" | xxd -r -p | openssl dgst -sha256 -binary | openssl dgst -rmd160 -binary | xxd -p)
+PUBKEY_HASH=$(echo -n "$public_Key" | xxd -r -p | openssl dgst -sha256 -binary | openssl dgst -rmd160 -binary | xxd -p)
 
 CRIPT_HEX="${TIMESTAMP_PUSH}${TIMESTAMP_LE_HEX}${OP_CHECKLOCKTIMEVERIFY}${OP_DROP}${OP_DUP}${OP_HASH160}${PUBKEY_HASH_PUSH}${PUBKEY_HASH}${OP_EQUALVERIFY}${OP_CHECKSIG}"
 
