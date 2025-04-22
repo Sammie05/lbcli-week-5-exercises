@@ -24,7 +24,6 @@ HEX_FIRST_CHAR=$(echo $BLOCKS_HEX | cut -c1)
 
 BLOCKS_LE_HEX=$(echo $BLOCKS_HEX | grep -o .. | tac | tr -d '\n')
 
-ion
 BLOCKS_BYTES=$(echo -n "$BLOCKS_LE_HEX" | wc -c | awk '{print $1/2}')
 BLOCKS_PUSH=$(printf "%02x" $BLOCKS_BYTES)
 
@@ -35,4 +34,3 @@ PUBKEY_HASH=$(echo -n "$public_key" | xxd -r -p | openssl dgst -sha256 -binary |
 SCRIPT_HEX="${BLOCKS_PUSH}${BLOCKS_LE_HEX}${OP_CHECKSEQUENCEVERIFY}${OP_DROP}${OP_DUP}${OP_HASH160}${PUBKEY_HASH_PUSH}${PUBKEY_HASH}${OP_EQUALVERIFY}${OP_CHECKSIG}"
 
 echo "$SCRIPT_HEX"
-Footer
