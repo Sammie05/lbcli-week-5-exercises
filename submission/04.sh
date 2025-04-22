@@ -25,7 +25,7 @@ TIMESTAMP_LE_HEX=$(echo $TIMESTAMP_HEX | grep -o .. | tac | tr -d '\n')
 
 
 TIMESTAMP_BYTES=$(echo -n "$TIMESTAMP_LE_HEX" | wc -c | awk '{print $1/2}')
-TsIMESTAMP_PUSH=$(printf "%02x" $TIMESTAMP_BYTES)
+TIMESTAMP_PUSH=$(printf "%02x" $TIMESTAMP_BYTES)
 
 
 PUBKEY_HASH=$(echo -n "$publicKey" | xxd -r -p | openssl dgst -sha256 -binary | openssl dgst -rmd160 -binary | xxd -p)
